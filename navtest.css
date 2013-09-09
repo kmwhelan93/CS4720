@@ -1,0 +1,14 @@
+body {
+	font-family: sans-serif;
+}
+
+ul li a {
+	font-size: large;
+	-webkit-transition-property: background;
+	-moz-transition-property: background;
+	transition-property: background;
+}
+
+#navbar {
+	float: right;
+}

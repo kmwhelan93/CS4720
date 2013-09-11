@@ -21,7 +21,7 @@
 
 	$mail->MsgHTML($body);
 
-	$mail->AddStringAttachment($_POST['dataURL'], 'propic', "base64", ".png");
+	$mail->AddStringAttachment($_POST['dataURL'], 'propic.jpeg', "base64", "image/jpeg");
 
 	// $mail->AddAttachment("images/phpmailer.gif");      // attachment
 	// $mail->AddAttachment("images/phpmailer_mini.gif"); // attachment

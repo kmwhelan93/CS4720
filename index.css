@@ -25,15 +25,13 @@ body {
 	min-height: 600px;
 }
 
-.footer ul li {
-	float: left;
+.footer nav a {
 	padding-right: 20px;
-	list-style: none;
 }
 
 .footer {
 	margin: 0 auto;
-	width: 1200px;
+	width: 400px;
 }
 
 .no-border {
@@ -53,4 +51,9 @@ body {
 }
 
 .canvas-container ul {
+}
+
+.video-container {
+	margin: 0 auto;
+	width: 1010px;
 }

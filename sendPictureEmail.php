@@ -1,5 +1,22 @@
 <?php
 
+/*
+
+	// You need to adjust this to suit
+    $filename = '/tmp/myChart.jpeg';
+
+    $src     = $_POST['dataURL'];
+    $src     = substr($src, strpos($src, ",") + 1);
+    $decoded = base64_decode($src);
+    
+    $fp = fopen($filename,'wb');
+    fwrite($fp, $decoded);
+    fclose($fp);
+
+    */
+
+
+
 	require_once('class.phpmailer.php');
 
 	$mail             = new PHPMailer(); // defaults to using php "mail()"
@@ -23,6 +40,12 @@
 
 	$mail->AddStringAttachment($_POST['dataURL'], 'propic.jpeg', "base64", "image/jpeg");
 
+
+
+
+
+
+
 	// $mail->AddAttachment("images/phpmailer.gif");      // attachment
 	// $mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 
@@ -31,5 +54,4 @@
 	} else {
 	  echo "Message sent!";
 	}
-
 ?>

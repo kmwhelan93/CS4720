@@ -7,7 +7,7 @@
 	$headers .= "From:" . $_POST["from"] . "\r\n";
 	$theMessage="<html>
 	<body>
-		" . $_POST["dataURL"] . "
+		<a href=\"" . $_POST["dataURL"] . "\">the photo</a>
 	</body>
 	</html>
 	";

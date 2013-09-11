@@ -34,3 +34,7 @@ body {
 	margin: 0 auto;
 	width: 1200px;
 }
+
+.no-border {
+	border: none;
+}

@@ -80,3 +80,12 @@ animation:mymove 5s infinite;
 50% {left:950px; top: -100px;}
 100% {left:300px; top: -100px;}
 }
+#now-sending {
+	width: 150px;
+	height: auto;
+}
+
+#guess-response {
+	color: red;
+	font-style: bold;
+}

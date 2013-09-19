@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="index.css"/>
 
-	<script src="jquery-1.9.1.js"></script>
+	<!-- COMMON CSS -->
+	<link rel="stylesheet" href="index.css"/>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/bootstrap-theme.css" />
+
+
+	<!-- COMMON JS -->
+	<script src="js/jquery-2.0.3.js"></script>
 	<script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.6.0.min.js"></script>
-	<script type="text/javascript" src="index.js" async ></script>
+	<script src="js/bootstrap.js"></script>
+
+
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+	<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+
+
+	<!-- SPECIFIC JS & CSS -->
+	<script type="text/javascript" src="js/index.js" async ></script>
 	<title>Kevin's Homepage</title>
 	<meta charset="utf-8">
 </head>
@@ -23,9 +38,10 @@
 				<div id="pro-pic" class="left"></div>
 				Draw on me!
 				<ul>
-					<li><button id="undo-button">Undo</button></li>
+					<li><button id="undo-button" class="button">Undo</button></li>
 					<li><button id="redo-button">Redo</button></li>
-					<li><button id="send-button">Send to Kevin!</button></li>
+					<li><button id="send-button">Send to Kevin!</button></li> <img id="now-sending" style="display:none;" src="img/now-sending.gif"></img>
+					<div id="dialog-message" title="Picture Sent!" style="display:none;"><p>Your drawing on Kevin has been sent to him!</p></div>
 				</ul>
 			</div>
 			<h1>Welcome to Kevin Whelan's Homepage!!!</h1>
@@ -46,7 +62,7 @@
 			</audio>
 		</div>
 		<br/>
-		<div id="red-box"><img src="lolicon.jpg"></img></div>
+		<div id="red-box"><img src="lolicon.jpg" id="face"></img></div>
 		<br>
 		<br>
 		<br>
@@ -55,7 +71,12 @@
 		<br>
 		<br>
 		<br>
-		Some videos!
+		<br>
+		Guess my favorite number!: <input id="guess" name="guess" type="text">
+		<button id="guess-button" type="submit" value="Guess!">Guess!</button><span id="guess-response"></span>
+		<br>
+		<br>
+		Some videos! <button id="hide-video">Hide videos</button><button id="show-video" style="display:none">Show videos</button>
 		<br>
 		<div class="video-container">
 			<video width="370" height="370" controls class="left">

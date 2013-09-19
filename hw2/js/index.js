@@ -125,8 +125,34 @@ proPic.onload = function() {
 			redo();
 		});
 
-		$("#send-button").on("click", function () {
+		$( "#dialog-message" ).dialog({
+			 autoOpen: false,
+							      modal: true,
+							      buttons: {
+							        Ok: function() {
+							          $( this ).dialog( "close" );
+							        }
+							      }
+							    });
+		$("#guess-button").on("click", function() {
+			$.ajax({
+				url: "someForm.php",
+				data: {guess: $("#guess").val()},
+				success: function(data) {
+					data = $.parseJSON(data);
+					$("#guess-response").html(data["message"]);
+					if (data["correct"]) {
+						$("#guess-response").css("color", "green");
+					} else {
+						$("#guess-response").css("color", "red");
+					}
+				}
+			});
+		});
 
+		$("#send-button").on("click", function () {
+			$("#now-sending").show();
+			$("#send-button").hide();
 			stage.toDataURL({
 	        	callback: function(dataUrl) {
 	            /*
@@ -134,21 +160,37 @@ proPic.onload = function() {
 	             * In this tutorial we'll just open the url with the browser
 	             * so that you can see the result as an image
 	             */
+	             	$("#now-sending").show();
 	        		$.ajax({
 	        			type: "POST",
 						url: "sendPictureEmail.php",
 						data: {dataURL: dataUrl, from: "me"}, //todo fix
 						success: function (data) {
-							alert("success");
+							$("#now-sending").hide();
+							$("#send-button").show();
+							$("#dialog-message").dialog("open");
 						},
 						error: function() {
-							alert("fail!");
+							$("#now-sending").hide();
+							$("#send-button").show();
+
 						}
 					});
 	        	}
 	     	});
 			
 		});
+		$("#hide-video").click(function () {
+			$(".video-container").hide();
+			$("#hide-video").hide();
+			$("#show-video").show();
+		});
+		$("#show-video").click(function () {
+			$(".video-container").show();
+			$("#hide-video").show();
+			$("#show-video").hide();
+		});
+		$("#face").draggable();
 	});
 
 

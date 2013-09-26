@@ -18,9 +18,9 @@
 	
 	<script src="js/bootstrap.js"></script>
 
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="js/jquery-ui.js"></script>
 
-	<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<link href="css/jquery-ui.css" rel="stylesheet">
 
 
 
@@ -35,13 +35,13 @@
 </head>
 <body>
 <div class="container">
-	<div class="form-signin">
+	<form class="form-signin">
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<input id="username" type="text" class="form-control" placeholder="Username" autofocus>
 		<input id="password" type="password" class="form-control" placeholder="Password">
 		<button id="submit-button" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 		<button id="switch-type" type="button" class="btn btn-link">New User?</button>
-	</div>
+	</form>
 </div> <!-- /container -->
 </body>
 </html>

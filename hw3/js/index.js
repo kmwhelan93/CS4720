@@ -35,6 +35,33 @@ $(document).ready(function() {
     	});
     };
 
+
+        var registerRemove = function () {
+    	$(".minus-sign").on("click", function () {
+    	$.ajax({
+    		url: "delete_reminder.php",
+    		data: {id: $(this).children('span').html() },
+    		context: this,
+    		success: function (data) {
+    			console.log(data);
+    			data = $.parseJSON(data);
+				if (!data['success']) {
+					alert("reminder creation failed!");
+					return false;
+				}
+				if (!data['loggedin']) {
+					alert("you are not logged in. Click ok to continue to login page.");
+					window.location = "login.php";
+					return false;
+				}
+				delete reminders[$(this).children('span').html()];
+				render_reminders();
+
+    		}
+    	})
+    });
+    };
+
 	// make the modal have defaults for creating a reminder
 	var make_create_modal = function () {
 		$("#create-reminder .modal-header .modal-title").html('Create Reminder');
@@ -110,31 +137,7 @@ $(document).ready(function() {
 
 	
 
-    var registerRemove = function () {
-    	$(".minus-sign").on("click", function () {
-    	$.ajax({
-    		url: "delete_reminder.php",
-    		data: {id: $(this).children('span').html() },
-    		context: this,
-    		success: function (data) {
-    			console.log(data);
-    			data = $.parseJSON(data);
-				if (!data['success']) {
-					alert("reminder creation failed!");
-					return false;
-				}
-				if (!data['loggedin']) {
-					alert("you are not logged in. Click ok to continue to login page.");
-					window.location = "login.php";
-					return false;
-				}
-				delete reminders[$(this).children('span').html()];
-				render_reminders();
 
-    		}
-    	})
-    });
-    };
 
 
     var registerUpdate = function () {

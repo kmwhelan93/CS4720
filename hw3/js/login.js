@@ -38,8 +38,8 @@ $(document).ready(function() {
 	};
 
 	var makeLogin = function() {
-		$("#submit-button").unbind('click');
-		$("#submit-button").on("click", login);
+		$(".form-signin").unbind('submit');
+		$(".form-signin").on("submit", login);
 		$("#switch-type").html("New User?");
 		$("#submit-button").html("Sign in");
 		$(".form-signin-heading").html("Please sign in");
@@ -47,15 +47,15 @@ $(document).ready(function() {
 	}
 
 	var makeRegister = function() {
-		$("#submit-button").unbind('click');
-		$("#submit-button").on("click", register);
+		$(".form-signin").unbind('submit');
+		$(".form-signin").on("submit", register);
 		$("#switch-type").html("Switch to login");
 		$("#submit-button").html("Register");
 		$(".form-signin-heading").html("Please register");
 		isLogin = false;
 	}
 
-	$("#submit-button").on("click", login);
+	$(".form-signin").on("submit", login);
 
 	$("#switch-type").on("click", function () {
 		if (isLogin) {

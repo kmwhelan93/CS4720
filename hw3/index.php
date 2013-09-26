@@ -23,9 +23,9 @@
 	
 	<script src="js/bootstrap.js"></script>
 
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="js/jquery-ui.js"></script>
 
-	<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<link href="css/jquery-ui.css" rel="stylesheet">
 
 
 

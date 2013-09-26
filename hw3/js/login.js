@@ -4,7 +4,6 @@ $(document).ready(function() {
 	var login = function() {
 		$.ajax({
 			url: "try-login.php",
-			type: "Post",
 			data: {username: $("#username").val(),
 					password: $("#password").val() },
 			success: function (data) {

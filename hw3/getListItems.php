@@ -18,7 +18,7 @@
 
 		
 		while ($stmt->fetch()) {
-			$listItems[$id] = ['title' => $title, 'notes' => $notes, 'priority' => $priority];
+			$listItems[$id] = array('title' => $title, 'notes' => $notes, 'priority' => $priority);
 		}
 		$arr = array('success' => true, 'list_items' => $listItems);
 		echo json_encode($arr);

@@ -62,7 +62,7 @@
 
 	<div class="list-group">
 		<ul class="list-group">
-			<li class="list-group-item active">Your Reminders<a data-toggle="modal" href="#create-reminder" type="button" style="float:right;" class="btn btn-default">+</a></li>
+			
       	</ul>
 
 	 

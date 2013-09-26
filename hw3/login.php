@@ -35,13 +35,13 @@
 </head>
 <body>
 <div class="container">
-	<form class="form-signin">
+	<div class="form-signin">
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<input id="username" type="text" class="form-control" placeholder="Username" autofocus>
 		<input id="password" type="password" class="form-control" placeholder="Password">
 		<button id="submit-button" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 		<button id="switch-type" type="button" class="btn btn-link">New User?</button>
-	</form>
+	</div>
 </div> <!-- /container -->
 </body>
 </html>

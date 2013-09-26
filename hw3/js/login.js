@@ -29,6 +29,8 @@ $(document).ready(function() {
 				if (data['success']) {
 					alert("user created! Click Ok to continue logging in."); // TODO make modal instead of alert
 					window.location.href = "index.php";
+				} else {
+					alert("username is taken");
 				}
 			}
 		});
@@ -36,7 +38,8 @@ $(document).ready(function() {
 	};
 
 	var makeLogin = function() {
-		$(".form-signin").on("submit", login);
+		$("#submit-button").unbind('click');
+		$("#submit-button").on("click", login);
 		$("#switch-type").html("New User?");
 		$("#submit-button").html("Sign in");
 		$(".form-signin-heading").html("Please sign in");
@@ -44,14 +47,15 @@ $(document).ready(function() {
 	}
 
 	var makeRegister = function() {
-		$(".form-signin").on("submit", register);
+		$("#submit-button").unbind('click');
+		$("#submit-button").on("click", register);
 		$("#switch-type").html("Switch to login");
 		$("#submit-button").html("Register");
 		$(".form-signin-heading").html("Please register");
 		isLogin = false;
 	}
 
-	$(".form-signin").on("submit", login);
+	$("#submit-button").on("click", login);
 
 	$("#switch-type").on("click", function () {
 		if (isLogin) {

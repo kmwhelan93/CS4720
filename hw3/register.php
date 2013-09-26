@@ -6,8 +6,8 @@
 	}
 	include_once('dblogin.php');
 
-	$username = $_POST['username'];
-	$password = hash("md5", $_POST['password']);
+	$username = $_GET['username'];
+	$password = hash("md5", $_GET['password']);
 	$taken = false;
 	$success = false;
 	/*

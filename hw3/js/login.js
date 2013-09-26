@@ -22,7 +22,6 @@ $(document).ready(function() {
 	var register = function() {
 		$.ajax({
 			url: "register.php",
-			type: "Post",
 			data: {username: $("#username").val(),
 					password: $("#password").val() },
 			success: function (data) {

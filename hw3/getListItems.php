@@ -6,7 +6,8 @@
 		session_start();
 	}
 	if (!isset($_SESSION['username'])) {
-		echo json_encode(['success' => false]);
+		$arr = array('success' => false);
+		echo json_encode($arr);
 	}
 	$listItems = array();
 
@@ -19,7 +20,7 @@
 		while ($stmt->fetch()) {
 			$listItems[$id] = ['title' => $title, 'notes' => $notes, 'priority' => $priority];
 		}
-
-		echo json_encode(['success' => true, 'list_items' => $listItems]);
+		$arr = array('success' => true, 'list_items' => $listItems);
+		echo json_encode($arr);
 	}
 ?>

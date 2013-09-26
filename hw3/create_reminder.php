@@ -6,7 +6,8 @@
 		session_start();
 	}
 	if (!isset($_SESSION['username'])) {
-		echo json_encode(['success' => false, 'loggedin' => false, "title" => $title]);
+		$arr = array('success' => false, 'loggedin' => false, "title" => $title);
+		echo json_encode($arr);
 	}
 	$title = $_GET['title'];
 	$notes = "";
@@ -23,9 +24,11 @@
 	if ($stmt->prepare("INSERT INTO reminders (username, title, notes, priority) VALUES (?, ?, ?, ?)")) {
 		$stmt->bind_param('ssss', $username, $title, $notes, $priority);
 		if ($stmt->execute()) {
-			echo json_encode(["success" => true, 'loggedin' => true, "title" => $title]);
+			$arr = array("success" => true, 'loggedin' => true, "title" => $title);
+			echo json_encode($arr);
 		} else {
-			echo json_encode(['success' => false, 'loggedin' => true, "title" => $title]);
+			$arr = array('success' => false, 'loggedin' => true, "title" => $title);
+			echo json_encode($arr);
 		}
 	}
 

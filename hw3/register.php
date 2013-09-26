@@ -36,9 +36,9 @@
 	}
 	
 	$db_connection->close();
-
-	echo json_encode(['taken' => $taken,
-						'success' => $success]);
+	$arr = array('taken' => $taken,
+						'success' => $success);
+	echo json_encode($arr);
 
 
 

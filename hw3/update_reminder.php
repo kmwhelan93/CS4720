@@ -6,7 +6,8 @@
 		session_start();
 	}
 	if (!isset($_SESSION['username'])) {
-		echo json_encode(['success' => false, 'loggedin' => false, "id" => $id]);
+		$arr = array('success' => false, 'loggedin' => false, "id" => $id);
+		echo json_encode($arr);
 	}
 	$id = $_GET['id'];
 	$title = $_GET['title'];
@@ -25,9 +26,11 @@
 	if ($stmt->prepare("UPDATE reminders set title=?, priority=?, notes=? where reminder_id=? and username=?")) {
 		$stmt->bind_param('sssss', $title, $priority, $notes, $id, $username);
 		if ($stmt->execute()) {
-			echo json_encode(["success" => true, 'loggedin' => true, "id" => $id]);
+			$arr = array("success" => true, 'loggedin' => true, "id" => $id);
+			echo json_encode($arr);
 		} else {
-			echo json_encode(['success' => false, 'loggedin' => true, "id" => $id]);
+			$arr = array('success' => false, 'loggedin' => true, "id" => $id);
+			echo json_encode($arr);
 		}
 	}
 

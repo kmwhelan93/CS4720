@@ -6,7 +6,8 @@
 		session_start();
 	}
 	if (!isset($_SESSION['username'])) {
-		echo json_encode(['success' => false, 'loggedin' => false, "id" => $id]);
+		$arr = array('success' => false, 'loggedin' => false, "id" => $id);
+		echo json_encode($arr);
 	}
 	$id = $_GET['id'];
 
@@ -14,9 +15,11 @@
 	if ($stmt->prepare("DELETE FROM reminders WHERE reminder_id=?")) {
 		$stmt->bind_param('s', $id);
 		if ($stmt->execute()) {
-			echo json_encode(["success" => true, 'loggedin' => true, "id" => $id]);
+			$arr = array("success" => true, 'loggedin' => true, "id" => $id);
+			echo json_encode($arr);
 		} else {
-			echo json_encode(['success' => false, 'loggedin' => true, "id" => $id]);
+			$arr = array('success' => false, 'loggedin' => true, "id" => $id);
+			echo json_encode($arr);
 		}
 	}
 

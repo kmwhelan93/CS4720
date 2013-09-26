@@ -16,9 +16,11 @@
 		$stmt->bind_result($username, $password);
 		if ($stmt->fetch()) {
 			$_SESSION['username'] = $username;
-			echo json_encode(['success' => true]);
+			$arr = array('success' => true);
+			echo json_encode($arr);
 		} else {
-			echo json_encode(['success' => false]);
+			$arr = array('success' => false);
+			echo json_encode($arr);
 		}
 	}
 

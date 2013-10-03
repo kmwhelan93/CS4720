@@ -2,17 +2,17 @@
 require 'flight/Flight.php';
 
 Flight::route('/', function(){
-    include 'home.php';
+	Flight::render('home.php');
 });
 
 
 
 Flight::route('/reminders/', function() {
-	include 'reminders.php';
+	Flight::render('reminders.php');
 });
 
 Flight::route('/login', function () {
-	include 'login.php';
+	Flight::render('login.php');
 });
 
 Flight::route('/try-login', function() {
@@ -28,11 +28,11 @@ Flight::route('/getListItemsPriority', function() {
 });
 
 Flight::route('/users', function() {
-	include 'users.php';
+	Flight::render('users.php');
 });
 
 Flight::route('/reminders/priority/@priority:[1-5]', function($priority) {
-	include 'priority.php';
+	Flight::render('priority.php', array('priority' => $priority));
 });
 
 Flight::route('/reminders/delete/', function() {
@@ -44,7 +44,7 @@ Flight::route('/reminders/insert/', function() {
 });
 
 Flight::route('/reminders/view/@id/', function($id) {
-	include 'view_reminder.php';
+	Flight::render('view_reminder.php');
 });
 
 Flight::route('/@name/@id:[0-9]{3}', function($name, $id){

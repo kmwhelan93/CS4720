@@ -44,7 +44,7 @@ Flight::route('/reminders/insert/', function() {
 });
 
 Flight::route('/reminders/view/@id/', function($id) {
-	Flight::render('view_reminder.php');
+	Flight::render('view_reminder.php', array('id' => $id));
 });
 
 Flight::route('/@name/@id:[0-9]{3}', function($name, $id){

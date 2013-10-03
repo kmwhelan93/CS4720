@@ -41,7 +41,12 @@
 </div>
 
   <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="./">Hi, <?php echo $_SESSION['username'] ?></a></li>
+    <li class="active"><a href="./">Hi, <?php 
+    if (isset($_SESSION['username']))
+     {
+     	echo $_SESSION['username']; 
+     }
+     ?></a></li>
     <li><a href="logout.php">Logout</a></li>
   </ul>
 </div><!--/.nav-collapse -->

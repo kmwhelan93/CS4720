@@ -2,7 +2,8 @@ $(document).ready(function() {
 	var reminders = new Array();
 
 	$.ajax({
-		url: 'getListItems.php',
+		url: '../../getListItemsPriority',
+		data: {priority: $("#priority").html()},
 		success: function(data) {
 			data = $.parseJSON(data);
 			reminders = data['list_items'];
@@ -13,7 +14,7 @@ $(document).ready(function() {
 
 	var create_reminder = function() {
     	$.ajax({
-    		url: "reminders/insert",
+    		url: "../../reminders/insert",
     		data: { title: $("#input-title").val(),
     				priority: $("#priority-value").html(),
     				notes: $("#input-notes").val()},
@@ -25,12 +26,12 @@ $(document).ready(function() {
 				}
 				if (!data['loggedin']) {
 					alert("you are not logged in. Click ok to continue to login page.");
-					window.location = "login";
+					window.location = "../../login";
 					return false;
 				}
 				$("#create-reminder").modal('hide');
 				$("ul.list-group").append('<li class="list-group-item">' + data['title'] +  '</li>'); // todo add id for deleting
-				window.location = "reminders"; // todo remove this and use actual id of item
+				window.location = "../../reminders"; // todo remove this and use actual id of item
     		}
     	});
     };
@@ -39,7 +40,7 @@ $(document).ready(function() {
         var registerRemove = function () {
     	$(".minus-sign").on("click", function () {
     	$.ajax({
-    		url: "reminders/delete",
+    		url: "../../reminders/delete",
     		data: {id: $(this).children('span').html() },
     		context: this,
     		success: function (data) {
@@ -51,7 +52,7 @@ $(document).ready(function() {
 				}
 				if (!data['loggedin']) {
 					alert("you are not logged in. Click ok to continue to login page.");
-					window.location = "login.php";
+					window.location = "../../login.php";
 					return false;
 				}
 				delete reminders[$(this).children('span').html()];
@@ -78,14 +79,14 @@ $(document).ready(function() {
 
 	var render_reminders = function () {
 		// TODO fix title if no reminders
-		var result = '<li class="list-group-item active">Your Reminders<span id="plus-sign" type="button" style="float:right;" class="btn btn-default">+</span></li>';
+		var result = '<li class="list-group-item active">Your Reminders With Priority ' + $("#priority").html() + '<span id="plus-sign" type="button" style="float:right;" class="btn btn-default">+</span></li>';
 		for (id in reminders) {
 			var reminder = reminders[id];
 			var notes = reminder['notes'];
 			if (notes.length > 40) {
 				notes = notes.substring(0, 40) + "...";
 			}
-			result += '<li class="list-group-item"><button type="button" class="btn btn-link title">' + reminder['title'] + '</button>&nbsp;&nbsp;<a href="reminders/view/' + id + '">view</a>&nbsp;&nbsp;<span class="notes">' + notes + '</span><span class="minus-sign"><img src="img/minus-sign.gif"><span class="reminder_id" style="display:none">' + id + '</span></img></span></li>';
+			result += '<li class="list-group-item"><button type="button" class="btn btn-link title">' + reminder['title'] + '</button>&nbsp;&nbsp;<a href="../../reminders/view/' + id + '">view</a>&nbsp;&nbsp;<span class="notes">' + notes + '</span><span class="minus-sign"><img src="../../img/minus-sign.gif"><span class="reminder_id" style="display:none">' + id + '</span></img></span></li>';
 		}
 		$("ul.list-group").html(result);
 		registerRemove();
@@ -114,7 +115,7 @@ $(document).ready(function() {
 
 	var update_reminder = function(event) {
 		$.ajax({
-			url: 'update_reminder.php',
+			url: '../../update_reminder.php',
 			data: { id: event.data.reminder_id,
 					title: $("#input-title").val(),
 					priority: $("#priority-value").html(),

@@ -12,5 +12,5 @@
 		return null;
 	}
 
-	$stmt = $db_connection->stmt_init();
+	$stmt = $db_connection->stmt_init(); 
 ?>
